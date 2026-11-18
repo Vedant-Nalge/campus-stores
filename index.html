@@ -63,11 +63,34 @@
           d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
         />
       </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </symbol>
+      <symbol id="icon-user-check" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <polyline points="16 11 18 13 22 9"></polyline>
+      </symbol>
+      <symbol id="icon-alert-triangle" viewBox="0 0 24 24">
+        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </symbol>
     </svg>
     <main>
       <div id="campus-stores">
         <div class="examstrip">
-          <span>Product Engineer practical</span>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <span>Product Engineer practical</span>
+            <button type="button" data-action="toggle-tour" class="tour-trigger-btn">
+              <svg class="store-icon" width="14" height="14"><use href="#icon-book-open"></use></svg>
+              <strong>Interactive Journey Walkthrough</strong>
+            </button>
+          </div>
           <details>
             <summary>Candidate brief</summary>
             <div class="briefcopy">
@@ -95,6 +118,7 @@
             </div>
           </details>
         </div>
+        <div data-tour-dock hidden></div>
         <header class="mast">
           <div class="brandblock">
             <div class="brandmark" aria-hidden="true">
@@ -112,12 +136,16 @@
           </div>
         </header>
         <aside class="shift">
-          <div>
-            <b data-shift-title></b>
-            <p data-shift></p>
+          <div class="shift-stepper-wrap">
+            <div class="shift-timeline" data-stepper></div>
+            <div class="shift-narrative">
+              <b data-shift-title></b>
+              <p data-shift></p>
+            </div>
           </div>
           <button type="button" data-action="advance"></button>
         </aside>
+        <div data-briefing-banner></div>
         <div class="shell">
           <nav aria-label="Store records" data-nav></nav>
           <section
@@ -132,6 +160,8 @@
             Restart sample shift
           </button>
         </div>
+        <div id="modal-container" data-modal hidden></div>
+        <div class="toast-hub" data-toasts aria-live="polite"></div>
       </div>
     </main>
   </body>
